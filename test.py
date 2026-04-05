@@ -25,7 +25,14 @@ st.subheader("📊 부서별 매출")
 # 가로 이름 표시 막대 그래프
 import matplotlib.pyplot as plt
 import matplotlib
-matplotlib.rcParams['font.family'] = 'Malgun Gothic'
+import urllib.request
+import os
+urllib.request.urlretrieve(
+    "https://github.com/google/fonts/raw/main/ofl/nanumgothic/NanumGothic-Regular.ttf",
+    "NanumGothic.ttf"
+)
+matplotlib.font_manager.fontManager.addfont("NanumGothic.ttf")
+matplotlib.rcParams['font.family'] = 'NanumGothic'
 
 fig, ax = plt.subplots()
 ax.bar(edited_df["이름"], edited_df["매출"], color="steelblue")
